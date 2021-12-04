@@ -2,86 +2,21 @@
 <head>
     <meta charset="UTF-8">
     <title>그곳엔 향기가 있다</title>
-    <style>
+    <link rel="stylesheet" href="/css/home.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-        body {
-            margin: 0;
-        }
-        ul li{
-            text-align: right;
-            list-style: none; display: inline; padding-right: 15px; margin-right: 15px;
-            border-right: 1px solid rgb(224, 221, 221);
-        }
-        img {
-            position: absolute;
-        }
-        h1{
-            margin: 0;
-            padding: 54px 20px;
-            padding-bottom: 60px;
-            border-bottom: 1px solid rgb(77, 76, 76);
-        }
-        a {
-            text-decoration : none;
-            color: black;
-        }
-        .Topright {
-            text-align: right;
-            margin-top: 20px;
-        }
-        .noneRightBar {
-            border-right: 1px solid white;
-        }
-        .center {
-            margin: 0;
-            text-align: center;
-        }
-        .textColorWhite {
-            color: rgb(10, 10, 10);
-            background-color: rgb(204, 204, 204);
-            padding-left: 15px;
-            font-size: x-large;
-            padding-bottom: 5px;
-        }
-        .list {
-            margin: 0;
-            border-bottom: 1px solid rgb(77, 76, 76);
-            padding-bottom: 5px;
-        }
-
-
-
-
-
-    </style>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#header").load("/parts/header.html")
+        });
+   </script> 
 </head>
+
+
+
 <body>
 
-    <div class="Topright">
-        <ul>
-            <li><a href="Login.html">로그인</a></li>
-            <li>회원가입</li>
-            <li>마이페이지</li>
-            <li>장바구니</li>
-            <li class="noneRightBar">고객센터</li>
-        </ul>
-    </div>
-
-    <div>
-        <img src="sumuk.png" width="270px" height="130px">
-        <h1 class="center">그곳에 향기가 있다</h1>
-    </div>
-
-    <ul class="center list">
-        <li class="textColorWhite">≡</li>
-        <li>신상</li>
-        <li>베스트</li>
-        <li>MD추천</li>
-        <li>상의</li>
-        <li>하의</li>
-        <li>원피스</li>
-        <li>소품</li>
-        <li class="noneRightBar">아울렛세일</li>
-    </ul>
+    <div id="header"></div>
+    
 </body>
 </html>

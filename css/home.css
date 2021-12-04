@@ -1,0 +1,45 @@
+
+body {
+    margin: 0;
+}
+.Topright li, .list li {
+    text-align: right;
+    list-style: none; display: inline; padding-right: 15px; margin-right: 15px;
+    border-right: 1px solid rgb(224, 221, 221);
+}
+img {
+    position: absolute;
+}
+h1{
+    margin: 0;
+    padding: 54px 20px;
+    padding-bottom: 60px;
+    border-bottom: 1px solid rgb(77, 76, 76);
+}
+a {
+    text-decoration : none;
+    color: black;
+}
+.Topright {
+    text-align: right;
+    margin-top: 20px;
+}
+.noneRightBar {
+    border-right: 1px solid white;
+}
+.center {
+    margin: 0;
+    text-align: center;
+}
+.textColorWhite {
+    color: rgb(10, 10, 10);
+    background-color: rgb(204, 204, 204);
+    padding-left: 15px;
+    font-size: x-large;
+    padding-bottom: 5px;
+}
+.list {
+    margin: 0;
+    border-bottom: 1px solid rgb(77, 76, 76);
+    padding-bottom: 5px;
+}
