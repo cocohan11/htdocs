@@ -3,96 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>그곳에 향기가 있다 - 로그인</title>
-    <link rel="stylesheet" href="ㄹㄹㄹ">
+    <link rel="stylesheet" href="/css/join.css?">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
+    <script src="/js/join_address.js"></script> 
     <script type="text/javascript">
         $(document).ready(function(){
             $("#parts_header").load("/parts/header.html")});
    </script> 
-   <style>
-   .join_center {
-       margin-left: 170px; margin-right: 170px;
-       margin-top: 60px;
-    }
-    .join_index {
-        font-size: 13px;
-        color: rgb(172, 172, 172);
-        margin-top: 5px; margin-bottom: 5px; margin-left: 170px;
-    }
-    .hr_color {
-        height: 0;
-        border: 0;
-        margin: 0;
-        border-top: 1px solid rgb(224, 224, 224);
-    }
-    .회원가입박스 {
-        overflow: hidden;
-        border-bottom: 1px solid black;
-    }    
-    .회원가입 {
-        float: left;
-    }
-    .정보입력0102 {
-        text-align: right;
-        padding-top: 30px;
-    }
-    .기본정보_center {
-        margin-left: 250px; margin-right: 250px;
-        margin-top: 60px;
-    }
-    .textColor_red {
-        color: brown;
-    }
-    li {
-        list-style: none;
-    }
-    ul { padding: 0;
-    }
-
-    #join_gide {
-        display: grid;
-        grid-template-columns: 250px 1fr;
-    }
-    #join_gide input {
-        display: block;
-    }
-
-    .grid_left {
-        margin: 0;
-        padding: 20px;
-        background-color: rgb(247, 243, 238);
-    }
-    .grid_left li {
-        padding: 20px;
-    }
-    .grid_right {
-        margin-top: 20px;
-        margin-left: 5px;
-        padding: 10px;
-    }
-    .grid_right input {
-        padding: 10px;
-        margin-bottom: 25px;
-        width: 60%;
-    }
-
-    .띄어쓰기 {
-        margin-left: 18px;
-    }
-    .btn {
-        width: 120px;
-        height: 50px;
-        margin: 10px;
-        margin-top: 50px;
-    }
-    .btn_회원가입 {
-        background-color: brown;
-        color: white;
-        border: 0;
-    }
-
-
-   </style>
 </head>
 
 
@@ -126,16 +44,27 @@
                     <li><span class="textColor_red">▪</span><span> 비밀번호<span></li>
                     <li><span class="textColor_red">▪</span><span> 비밀번호 확인<span></li>
                     <li><span class="textColor_red">▪</span><span> 이름<span></li>
+                    <li class="띄어쓰기">이메일</li>
                     <li class="띄어쓰기">휴대폰번호</li>
                     <li class="띄어쓰기">주소</li>
                 </ul>
                 <form class="grid_right" action="join.php" method="post">
                     <input type="text" name="id" placeholder="아이디">
-                    <input type="text" name="pwd" placeholder="비밀번호">
-                    <input type="text" name="pwdCheck" placeholder="비밀번호 확인">
+                    <input type="password" name="pwd" placeholder="비밀번호">
+                    <input type="password" name="pwdCheck" placeholder="비밀번호 확인">
                     <input type="text" name="name" placeholder="이름">
-                    <input type="text" name="tel" placeholder="-없이 입력하세요">
-                    <input type="text" name="adress" placeholder="주소">
+                    <input type="email" name="email" placeholder="이메일">
+                    @<select id="email"  name="emadress"><option value="naver.com">naver.com</option>
+                        <option value="nate.com">nate.com</option>
+                        <option value="hanmail.com">hanmail.com</option>
+                    </select>
+                    <input type="text" name="tel" placeholder="-없이 입력하세요"><br>
+                    <input type="text" id="postcode" placeholder="우편번호" readonly > 
+                    <input type="button" id="postcode_button" onclick="open_Postcode()" value="우편번호 찾기"><br>
+                    <input type="text" id="road_address" placeholder="도로 주소" readonly>
+                    <input type="text" id="address" placeholder="지번 주소"readonly>
+                    <input type="text" id="detail_address" placeholder="상세주소">
+
                 </form>
             </div>
             <hr class="hr_color">
@@ -144,10 +73,12 @@
                 <input class="btn btn_회원가입" type="submit" value="회원가입">
             </div>
         </div>
-
     </div>
 
     
 <div style="margin-bottom: 10%;"></div>
 </body>
+
+
+
 </html>
