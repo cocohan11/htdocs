@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <title>그곳엔 향기가 있다</title>
     <link rel="stylesheet" href="/css/home.css">
+    <link rel="stylesheet" href="/css/item_detail.css">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -14,6 +15,81 @@
 <body>
     <!-- 그곳에향기가있다 상단, 카테고리.. -->
     <div id="parts_header"></div>
+
+    <div class="item_detail_center">
+        <div class="좌사진우설명">
+            <img id="메인사진" src="/src/코트1.jpg">
+            <div class="item박스">
+                <table class="item_table">
+                    <thead>
+                        <tr>
+                            <td colspan="2"><h4>누빔플리츠코트</h4></td>
+                            <!-- <td></td> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="80">판매가</td>
+                            <td>490,000원</td>
+                        </tr>
+                        <tr>
+                            <td>배송비</td>
+                            <td>0원</td>
+                        </tr>
+                        <tr>
+                            <td>상품코드</td>
+                            <td>2100123</td>
+                        </tr>
+                        <tr>
+                            <td>색상</td>
+                            <td>
+                                <select name="색상">
+                                    <option value="">색상</option>
+                                    <option value="검정">검정</option>
+                                    <option value="회색">회색</option>
+                                    <option value="아이보리">아이보리</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>사이즈</td>
+                            <td>
+                                <select name="사이즈">
+                                    <option value="">사이즈</option>
+                                    <option value="검정">소</option>
+                                    <option value="회색">중</option>
+                                    <option value="아이보리">대</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="btn_주문">
+                    <button style="margin-left: 4;">장바구니</button>
+                    <button>찜하기</button>
+                    <button>바로 구매</button>
+                </div>
+                
+            </div>
+        </div>
+        <!-- 스크롤 주르르륵 내림. 전부 사진임 -->
+        <h3>상세보기</h3>
+        <div class="상세사진들">
+            <img src="/src/코트1long.jpg">
+            <img src="/src/코트2.jpg">
+            <img src="/src/코트3long.jpg">
+            <img src="/src/코트4long.jpg">
+        </div>
+        <!-- 후기 -->
+        <h3>상품 후기</h3>
+        <div class="btn_주문">
+            <button>상품후기 전체보기</button>
+            <button>상품후기 글쓰기</button>
+        </div>
+
+    </div>
+
+
 
 
 

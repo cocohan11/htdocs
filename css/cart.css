@@ -1,0 +1,44 @@
+.cart_center {
+    margin-left: 10%; margin-right: 10%; margin-top: 60px;
+    /* border: 1px solid black; */
+}
+/* .cart_center h2 {
+   border-bottom: 1px solid black;
+   padding-bottom: 20px;
+} */
+.cart박스 {
+    overflow: hidden;
+    border-bottom: 1px solid black;
+}    
+.장바구니h2 {
+    float: left;
+}
+.정보입력123 {
+    text-align: right;
+    padding-top: 30px;
+}
+.textColor_red {
+    color: brown;
+}
+table {
+    width: 100%;
+    border: 1px solid gray;
+    margin-bottom: 70px;
+    padding: 10px;
+}
+.table2 td {
+    text-align: right;
+}
+.table1 td {
+    text-align: center;
+}
+#left정렬 {
+    text-align: left;
+}
+.btn_주문 {
+    float: right;
+}
+.btn_주문 button {
+    padding: 15px;
+    margin-left: 10px;
+}

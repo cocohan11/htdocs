@@ -1,0 +1,45 @@
+.item_detail_center {
+    margin-left: 15%; margin-right: 15%; margin-top: 50px;
+    text-align: center;
+}
+#메인사진 {
+    width: 500px;
+    float: left;
+    margin-right: 30px;
+}
+.좌사진우설명 {
+ overflow: hidden;
+}
+.item_table {
+    width: 500px;
+    border: 1px solid gray;
+    padding-bottom: 20px;
+}
+.item_table h4 {
+    font-size: large;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;padding-top: 10px;
+    margin: 0;
+}
+.item_table td {
+    padding: 15px; padding-left: 25px;
+}
+.btn_주문 {
+    padding-right: 30px;
+}
+.btn_주문 button {
+     padding: 15px; padding-left: 50px; padding-right: 50px;
+     margin-top: 20px; margin-right: 10px;
+ }
+ .item_table select {
+     height: 25px;
+     width: 100px;
+ }
+ .상세사진들 img {
+     width: 800px;
+ }
+ .item_detail_center h3{
+     border-top: 1px solid gray;
+     padding: 10px; 
+     margin-top: 40px;
+ }
