@@ -1,0 +1,143 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>그곳엔 향기가 있다 - 장바구니</title>
+    <link rel="stylesheet" href="/css/home.css?">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#parts_header").load("/parts/header.html")});
+   </script> 
+   <style>
+       .cart_center {
+            margin-left: 10%; margin-right: 10%; margin-top: 60px;
+            /* border: 1px solid black; */
+       }
+       /* .cart_center h2 {
+           border-bottom: 1px solid black;
+           padding-bottom: 20px;
+       } */
+       .cart박스 {
+            overflow: hidden;
+            border-bottom: 1px solid black;
+        }    
+        .장바구니h2 {
+            float: left;
+        }
+        .정보입력123 {
+            text-align: right;
+            padding-top: 30px;
+        }
+        .textColor_red {
+            color: brown;
+        }
+        table {
+            width: 100%;
+            border: 1px solid gray;
+            margin-bottom: 70px;
+            padding: 10px;
+        }
+        .table2 td {
+            text-align: right;
+        }
+        .table1 td {
+            text-align: center;
+        }
+        #left정렬 {
+            text-align: left;
+        }
+        .btn_주문 {
+            float: right;
+        }
+        .btn_주문 button {
+            padding: 15px;
+            margin-left: 10px;
+        }
+
+
+
+   </style>
+</head>
+
+
+<body>
+    <!-- 그곳에향기가있다 상단, 카테고리.. -->
+    <div id="parts_header"></div>
+
+    <div class="cart_center">
+        <div class="cart박스">
+            <h2 class="장바구니h2">회원가입</h2>
+            <div class="정보입력123">            
+                <div>
+                    <span class="textColor_red">01 장바구니 > </span> 
+                    <span>02 주문서작성/결제 > </span> 
+                    <span>03 주문완료</span> 
+                </div>
+            </div>
+        </div>
+        <table class="table1" border="1">
+            <thead>
+                <tr>
+                    <td><input type="checkbox" name="" id="" checked></td>
+                    <td colspan="2">상품/옵션 정보</td>
+                    <td>수량</td>
+                    <td>판매가</td>
+                    <td>배송비</td>
+                    <td>합계</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="checkbox" name="" id="" checked></td>
+                    <td width="80"><img src="/src/장바구니.PNG"></td>
+                    <td id="left정렬">
+                        <div>상품명 기입하기</div>
+                        <div>색상 : 회쑥색</div>
+                    </td>
+                    <td>
+                        <div>1개</div>
+                        <button>옵션/수량변경</button>
+                    </td>
+                    <td>0원</td>
+                    <td>490,000원</td>
+                    <td>490,000원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table2">
+            <tbody>
+                <tr>
+                    <td width="600"></td>
+                    <td>총 n개의 상품금액</td>
+                    <td rowspan="2"><img src="/src/plus.png"></td>
+                    <td>배송비</td>
+                    <td rowspan="2"><img src="/src/equal.png"></td>
+                    <td>합계</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>490,000원</td>
+                    <!-- <td></td> -->
+                    <td>0원</td>
+                    <!-- <td></td> -->
+                    <td>490,000원</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="btn_주문">
+            <button>선택 상품 주문</button>
+            <button>전체 상품 주문</button>
+        </div>
+        
+
+    </div>
+
+
+
+
+<div style="margin-bottom: 15%;"></div>
+
+</body>
+</html>

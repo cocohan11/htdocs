@@ -1,0 +1,65 @@
+.mypage_center {
+    margin-left: 10%; margin-right: 10%; margin-top: 60px;
+}
+.mypage_color_gray {
+    color: gray;
+    border-bottom: 1px solid rgb(236, 233, 233);
+    padding-left: 10%; padding-right: 10%;
+    padding-top: 5px; padding-bottom: 5px;
+}
+.member등급 {
+    background-color: rgb(142, 221, 142);
+    padding: 20px;
+    margin: 15px; margin-right: 11px;
+}
+.등급오른쪽 {
+     padding: 20px;
+     border-left: 1px solid rgb(236, 233, 233);
+}
+.등급box {
+     padding-top: 5px; padding-bottom: 5px;
+     border: 1px solid rgb(236, 233, 233);
+     margin-bottom: 20px;
+}
+.mypage_center h2 {
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+}
+.mypage_center span {
+    display: inline-block;
+}
+.나의주문처리현환5칸 {
+     display: flex;
+}
+.span1칸씩 {
+     flex: 1;
+     text-align: center;
+     margin: 10px;
+     border-right: 1px solid rgb(236, 233, 233);
+}
+.mypage_center h4 {
+    background-color: rgb(235, 235, 235);
+    margin: 0;
+    padding: 10px;
+}
+.나의주문처리현황box {
+    border: 1px solid gray;
+}
+.span1칸씩_텍스트 {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+.span1칸씩_숫자 {
+     font-weight: bold;
+     color: rgb(74, 179, 250);
+     font-size: 25px ;
+}
+
+.기타서비스 {
+     padding: 15px;
+     border-bottom: 1px solid rgb(236, 233, 233);
+}
+.기타서비스box {
+    margin-top: 40px;
+    border-bottom: 1px solid gray; border-top:1px solid gray;
+}
