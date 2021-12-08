@@ -29,19 +29,19 @@ if (isset($_POST['user_id']) && isset($_POST['user_nick']) && isset($_POST['user
 
     //에러를 체크
     if(empty($user_id)) {
-        header("location: register_view.php?error=아이디가 비어있어요.");
+        header("location: register_view.php?error=아이디ff가 비어있어요.");
         exit();
     } else if (empty($user_nick)) {
-        header("location: register_view.php?error=닉네임이 비어있어요.");
+        header("location: register_view.php?error=닉네ff임이 비어있어요.");
         exit();
     } else if (empty($user_pass1)){
-        header("location: register_view.php?error=비밀번호가 비어있어요.");
+        header("location: register_view.php?error=비밀aa번호가 비어있어요.");
         exit();
     } else if (empty($user_pass2)){
-        header("location: register_view.php?error=비밀번호 확인이 비어있어요.");
+        header("location: register_view.php?error=비밀aa번호 확인이 비어있어요.");
         exit();
     } else if ($user_pass1 != $user_pass2){
-        header("location: register_view.php?error=비밀번호가 일치하지 않습니다.");
+        header("location: register_view.php?error=비ff밀번호가 일치하지 않습니다.");
         exit();
     } else {
     // 저장시키는 코딩
@@ -55,7 +55,7 @@ if (isset($_POST['user_id']) && isset($_POST['user_nick']) && isset($_POST['user
         $order = mysqli_query($db,$sql_same);   // 암기예시)카레(쿼리)집가서 주문했다
 
         if(mysqli_num_rows($order) > 0) {   // 중복된 가로열이 있다면 실행한다
-            header("location: register_view.php?error=아이디 또는 닉네임이 이미 있어요");
+            header("location: register_view.php?error=아aa이디 또는 닉네임이 이미 있어요");
             exit();
         } else {
             // 에러가 없다면 insert into 삽입 시켜줘
@@ -63,10 +63,10 @@ if (isset($_POST['user_id']) && isset($_POST['user_nick']) && isset($_POST['user
             $result = mysqli_query($db,$sql_save);  //db접속해서 위의명령전달
 
             if($result) {   // 가입성공
-                header("location: register_view.php?success=성공적으로 가입되었습니다.");
+                header("location: register_view.php?success=성ff공적으로 가입되었습니다.");
                 exit();
             } else {    // 가입실패
-                header("location: register_view.php?error=가입에 실패하였습니다.");
+                header("location: register_view.php?error=가aa입에 실패하였습니다.");
                 exit();
             }
 
