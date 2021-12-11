@@ -70,7 +70,7 @@ if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['pwd']) && isse
             if($result) {   // 가입성공
                 // header("location: /php/join.php?success=성공적으로 가입되었습니다.");
                 echo "<script>alert('성공적으로 가입되었습니다.');</script>";
-                echo "<script>location.href='/html/login.html'</script>";
+                echo "<script>location.href='/php/login.php'</script>";
                 // header("location: /html/login.html");
                 
                 exit();

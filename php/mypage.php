@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <title>그곳엔 향기가 있다</title>
-    <link rel="stylesheet" href="/css/mypage.css">
+    <link rel="stylesheet" href="/css/mypage.css?">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function(){
@@ -20,7 +20,10 @@
         <h2>마이 쇼핑</h2>
         <div class="등급box">
             <span class="member등급">FAMILY</span>
-            <span class="등급오른쪽">저희 쇼핑몰을 이용해 주셔서 감사합니다. 님은 [FAMILY] 회원이십니다.</span>
+            <span class="등급오른쪽">저희 쇼핑몰을 이용해 주셔서 감사합니다. 
+                <span class="php_get_id"><?php if (isset($_GET['success'])) {?>
+                    <p><?php echo $_GET['success']; ?></p>
+                <?php } ?></span>님은 [FAMILY] 회원이십니다.</span>
         </div>
 
         <div class="나의주문처리현황box">

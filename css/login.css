@@ -12,10 +12,10 @@ span {
     padding-bottom: 8px;
 }
 .LoginBox {
+    width: 100%;
     background-color: rgb(54, 54, 54);
     color: rgb(251, 252, 240);
-    height: 35px;
-    padding-top: 12px;
+    height: 38px;
     margin-top: 20px;
     margin-bottom: 15px;
 }
@@ -27,4 +27,7 @@ span {
 }
 .check {
     margin: 30px;
+}
+.error문구 {
+    color: brown;
 }

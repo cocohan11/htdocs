@@ -63,3 +63,6 @@
     margin-top: 40px;
     border-bottom: 1px solid gray; border-top:1px solid gray;
 }
+.php_get_id {
+    color: rgb(92, 173, 92);
+}
