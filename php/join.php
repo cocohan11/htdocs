@@ -3,14 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>그곳에 향기가 있다 - 로그인</title>
-    <link rel="stylesheet" href="/css/join.css?ㅇ">
+    <link rel="stylesheet" href="/css/join.css?fa">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
     <script src="/js/join_address.js"></script> 
     <script type="text/javascript">
+        // 상단고정 html 불러오기
         $(document).ready(function(){
             $("#parts_header").load("/parts/header.html")});
    </script> 
+   <script>
+        function chid(){
+
+        document.getElementById("chk_id2").value=0;     // false
+        var id=document.getElementById("uid").value;    // 입력된 id값 
+        if(id==""){
+            alert("빈칸 안돼요!");
+            exit;
+        }
+        ifrm1.location.href="/php/server_join_btn_id.php?userid="+id;   // get메소드처럼 보냄
+        }
+
+    </script>
 </head>
 
 
@@ -35,15 +49,7 @@
                 <h2 class="회원가입">기본정보</h2>
                 <div class="정보입력0102 textColor_red">            
                     <div>
-                    <?php if (isset($_GET['error'])) {?>
-                        <p><?php echo $_GET['error']; ?></p>
-                    <?php } else {
-                        ?><span>▪ 표시는 반드시 입력하셔야 하는 항목입니다.</span> 
-                    <?php } ?>
-                    <?php if (isset($_GET['success'])) {?>
-                        <p><?php echo $_GET['success']; ?></p>
-                    <?php } ?>
-                        <!-- <span>▪ 표시는 반드시 입력하셔야 하는 항목입니다.</span>  -->
+                    <span>▪ 표시는 반드시 입력하셔야 하는 항목입니다.</span> 
                     </div>
                 </div>
             </div>
@@ -58,8 +64,18 @@
                     <li class="띄어쓰기">주소</li>
                 </ul>
                 <form class="grid_right" action="/php/server_join.php" method="post">
-                    <input type="text" name="id" placeholder="아이디">
-                    <input type="password" name="pwd" placeholder="비밀번호">
+                    <input type="text" id="uid" name="id" placeholder="아이디" >
+                    <input type=button id="중복검사" value="중복검사" onclick=chid()>
+                    <input type=hidden id="chk_id2" name=chk_id2 value="0">
+                        <script>
+                            // $("#uid").on("propertychange change keyup paste input", function(){
+                            //     alert("change");
+                            // });
+                            $("#uid").on("propertychange hange keyup paste input", function() {
+                                document.getElementById("chk_id2").value=0;     // 값 바뀌면 false로 돌려놓기
+                            });
+                        </script>
+                    <input type="password" name="pwd" placeholder="비밀번호" onkeyup="ajxa_id_check(this.value)">
                     <input type="password" name="pwdCheck" placeholder="비밀번호 확인">
                     <input type="text" name="name" placeholder="이름">
                     <input type="text" name="email" placeholder="이메일">
@@ -67,12 +83,12 @@
                         <option value="nate.com">nate.com</option>
                         <option value="hanmail.com">hanmail.com</option>
                     </select>
-                    <input type="text" name="tel" placeholder="-없이 입력하세요"><br>
-                    <input type="text" id="postcode" placeholder="우편번호" readonly > 
-                    <input type="button" id="postcode_button" onclick="open_Postcode()" value="우편번호 찾기"><br>
-                    <input type="text" id="road_address" placeholder="도로 주소" readonly>
-                    <input type="text" id="address" placeholder="지번 주소"readonly>
-                    <input type="text" id="detail_address" placeholder="상세주소">
+                    <input type="text" maxlenght="11" name="tel" placeholder="-없이 입력하세요"><br>
+                    <input type="number" id="addrCode" placeholder="우편번호" readonly > 
+                    <input type="button" id="addrCode_button" onclick="open_Postcode()" value="우편번호 찾기"><br>
+                    <input type="text" id="addr1" placeholder="도로 주소" readonly><br>
+                    <input type="text" id="addr2" placeholder="지번 주소"readonly>
+                    <input type="text" id="addr3" placeholder="상세주소">
                 </div>
                 <hr class="hr_color">
                 <div style="text-align: center;">
@@ -80,6 +96,9 @@
                     <input class="btn btn_회원가입" type="submit" value="회원가입" name="join">
                 </div>
             </form>
+        
+            <!-- 중복체크를 위한 창 -->
+            <iframe src="" id="ifrm1" scrolling=no frameborder=no width=00px height=00px name="ifrm1"></iframe>
         </div>
     </div>
 

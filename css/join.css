@@ -77,21 +77,23 @@
      border: 0;
  }
 
- #postcode {
+ #addrCode {
      width: 200px;
  }
- #postcode_button {
+ #addrCode_button {
      width: 120px;
  }
- #road_address {
-     width: 210px;
+ #addr2 {
+     width: 200px;
  }
- #address {
-    width: 210px;
+ #addr3 {
+    width: 120px;
  }
  #email {
     height: 30px;
  }
-
+ #중복검사 {
+    width: 100px;
+ }
 
 
