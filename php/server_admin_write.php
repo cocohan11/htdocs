@@ -1,43 +1,36 @@
 <?php
 
-    $check = $_POST['색상'];        // post메소드로 한 요청 중 '색상'에 대한 값을 변수에 대입한다. 
-    $array = array($check);         // 체크된 값들을 새로운 배열에 저장한다. 
-    
+    // post메소드로 받아온 정보
+    echo $_POST['옷타입'];  
+    $check_color = $_POST['색상'];  
+    $check_size = $_POST['사이즈'];
 
-    foreach ($array as $value){              // 반복문이다. (배열명 as 값 변수)
+    // 체크된 값들을 배열에 저장한다.
+    $array_color = array($check_color);     
+    $array_size = array($check_size);        
 
-        // echo "<pre>";
-        // var_dump($value);
-        // echo "<pre>";
-        $result = implode("|",$value);       // 문자열을 합치는 함수
-        // 배열 값들을 "|" 로 나누어서 한 문자열로 저장
- 
-        echo "<pre>";
-        var_dump($result);
-        echo "</pre>";
+
+    // 반복문. (배열명 as 값 변수) // 필수
+    foreach ($array_color as $value){              
+        $result_color = implode("|",$value);       // implode() : 문자열을 합치는 함수
+
+    }
+    foreach ($array_size as $value){              
+        $array_size = implode("|",$value);      
     }
 
-    // 결과값 문자열에 "딸기" 라는 문자가 포함되어 있으면 true 없으면 false
-    if(strpos($result,'검정') !== false){           // strpos()함수원형 : 문자열이 처음 나타나는 위치를 찾는 함수로 위치 값을 정수로 반환한다. 
+    // 결과값 문자열에 "검정" 이라는 문자가 포함되어 있으면 true 없으면 false
+    // strpos()함수원형 : 문자열이 처음 나타나는 위치를 찾는 함수로 위치 값을 정수로 반환한다. 
+    if(strpos($result_color,'검정') !== false){           
         echo "검정 있다!!<br>";     
     }else{
         echo "검정 없다...<br>";
     }
 
 
-    echo $_POST['옷타입'];
-    // echo $_POST['색상'];
-    // echo "<pre>";
-    // var_dump($value);
-    echo $value[0];
-    // echo "<pre>";
+    // echo $value[0];  << 마지막에 담기는 배열의 값이 담겨있다. 콕 집어서 값을 불러오고싶은데.. 아직 안 찾아봄
+    // 밸류 하나로 검색하니까 안 나오네. 하나의 긴 문자열로 만들어야 검색이 되나봄 하나로 묶는 과정이 필요하겠네 검색하려면.
 
-// 밸류 하나로 검색하니까 안 나오네. 하나의 긴 문자열로 만들어야 검색이 되나봄 하나로 묶는 과정이 필요하겠네 검색하려면.
-// if(strpos($value,'검정') !== false) {
-//     echo "검정 있슈<br>";
-// } else {
-//     echo "검정 없당께<br>";
-// }
 ?>
 
 <!DOCTYPE html>
@@ -50,15 +43,28 @@
     <select name="색상">
         <option value="">색상</option>
         <?php 
-            if(strpos($result,'검정') !== false) { ?>
+            if(strpos($result_color,'검정') !== false) { ?>
                 <option value="검정">검정</option>
-            <?php } if(strpos($result,'흰색') !== false) { ?>
+            <?php } if(strpos($result_color,'흰색') !== false) { ?>
                 <option value="흰색">흰색</option>
-            <?php } if(strpos($result,'회색') !== false) { ?>
+            <?php } if(strpos($result_color,'회색') !== false) { ?>
                 <option value="회색">회색</option>
+            <?php } if(strpos($result_color,'갈색') !== false) { ?>
+                <option value="갈색">갈색</option>
+            <?php } if(strpos($result_color,'곤색') !== false) { ?>
+                <option value="곤색">곤색</option>
             <?php } ?>
-            
-        
+    </select>
+    <select name="사이즈">
+        <option value="">사이즈</option>
+        <?php 
+            if(strpos($array_size,'소') !== false) { ?>
+                <option value="소">소</option>
+            <?php } if(strpos($array_size,'중') !== false) { ?>
+                <option value="중">중</option>
+            <?php } if(strpos($array_size,'대') !== false) { ?>
+                <option value="대">대</option>
+            <?php } ?>
     </select>
 </body>
 </html>
