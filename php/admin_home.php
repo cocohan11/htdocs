@@ -1,4 +1,4 @@
-<html lang="ko">
+<html lang="ko">                <!-- 관리자 페이지로 아무나 들어오면 안되니까 로그인해야 들어오도록 만들자 -->
 <head>
     <meta charset="UTF-8">
     <title>그곳엔 향기가 있다</title>

@@ -4,7 +4,7 @@
     $array = array($check);         // 체크된 값들을 새로운 배열에 저장한다. 
     
 
-    foreach ($array as $value){              // 반복문이다. 
+    foreach ($array as $value){              // 반복문이다. (배열명 as 값 변수)
 
         // echo "<pre>";
         // var_dump($value);
@@ -29,6 +29,7 @@
     // echo $_POST['색상'];
     // echo "<pre>";
     // var_dump($value);
+    echo $value[0];
     // echo "<pre>";
 
 // 밸류 하나로 검색하니까 안 나오네. 하나의 긴 문자열로 만들어야 검색이 되나봄 하나로 묶는 과정이 필요하겠네 검색하려면.
@@ -57,8 +58,7 @@
                 <option value="회색">회색</option>
             <?php } ?>
             
-        <!-- <option value="흰색">흰색</option>
-        <option value="회색">회색</option> -->
+        
     </select>
 </body>
 </html>

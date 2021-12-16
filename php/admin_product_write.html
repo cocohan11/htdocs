@@ -26,7 +26,7 @@
             </tr>
             <tr>
                 <td>상품명</td>
-                <td><input name="name" type="text" placeholder="예시) 플리츠 반팔 u넥"></td>        <!-- 중복검사하기 -->
+                <td><input name="name" type="text" placeholder="예시) 플리츠 반팔 u넥"></td>        <!-- 중복검사하기 !! -->
             </tr>
             <tr>
                 <td>판매가</td>
@@ -35,7 +35,7 @@
             <tr>
                 <td>색상</td>
                 <td>
-                    <input id="전체선택" type="checkbox" class="chk">전체선택        <!-- 체크의 class의 값이 모두 같음-->
+                    <input id="전체선택" type="checkbox" class="chk">전체선택              <!-- 체크의 class의 값이 모두 같음-->
                     <input name="색상[]" type="checkbox" class="chk" value="검정">검정     <!-- name을 key값으로 가져가기 때문에 같게 둠-->
                     <input name="색상[]" type="checkbox" class="chk" value="흰색">흰색     <!-- value값만 다르게 줌 -->
                     <input name="색상[]" type="checkbox" class="chk" value="회색">회색     
@@ -45,6 +45,12 @@
             </tr>
             <tr>
                 <td>사이즈</td>
+                <td>            
+                    <input id="전체선택_사이즈" type="checkbox" class="chk_size">전체선택        
+                    <input name="사이즈[]" type="checkbox" class="chk_size" value="소">소     
+                    <input name="사이즈[]" type="checkbox" class="chk_size" value="중">중     
+                    <input name="사이즈[]" type="checkbox" class="chk_size" value="대">대
+                </td>
             </tr>
             <tr>
                 <td>대표이미지</td>
@@ -91,7 +97,8 @@
 </body>
 </html>
 
-<script>                                            // 색상 다중선택 post로 넘기기위한 jquery
+<script>
+    // 색상 체크박스                                 // 색상 다중선택 post로 넘기기위한 jquery
     $("#전체선택").click(function() {               // 전체선택이란 id를 가진 체크박스를 클릭한다.
         if($("#전체선택").is(":checked")) {         // 만약 전체선택이 체크라면 
             $(".chk").prop("checked", true);       // 클래스값 chk를 가진 값들을 체크해라 //문법 >>> $(elem).prop('checked')
@@ -108,4 +115,23 @@
             $("#전체선택").prop("checked", false);
         }
     });
+
+    // 사이즈 체크박스
+    $("#전체선택_사이즈").click(function() {               // 전체선택_사이즈이란 id를 가진 체크박스를 클릭한다.
+        if($("#전체선택_사이즈").is(":checked")) {         // 만약 전체선택_사이즈이 체크라면 
+            $(".chk_size").prop("checked", true);       // 클래스값 chk_size를 가진 값들을 체크해라 //문법 >>> $(elem).prop('checked')
+        } else {
+            $(".chk_size").prop("checked", false);
+        }
+    });
+
+    // 전체 선택 중 한개의 체크박스 선택 해제 시 전체선택_사이즈 체크박스 해제
+    $(".chk_size").click(function(){
+        if($("input[name='사이즈[]']:checked").length == 3){
+            $("#전체선택_사이즈").prop("checked", true);
+        }else{
+            $("#전체선택_사이즈").prop("checked", false);
+        }
+    });
+
 </script>
