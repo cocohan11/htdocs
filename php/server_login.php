@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 // include('php/db.php');   include가 작동안함
 $db = mysqli_connect('127.0.0.1','root','rich','work');
 
@@ -17,10 +18,10 @@ if (isset($_POST['id']) && isset($_POST['pwd'])) {
 
     // 에러를 체크
     if(empty($id)) {
-        header("location: /php/login.php?error=아이디가 비어있어요.");
+        echo "<script> alert('아이디가 비어있어요.');  history.back(); </script>";
         exit();
     } else if (empty($pwd)){
-        header("location: /php/login.php?error=비밀번호가 비어있어요.");
+        echo "<script> alert('비밀번호가 비어있어요.');  history.back(); </script>";
         exit();
     } else {
     // 아이디 비밀번호로 로그인 확인 과정
@@ -44,25 +45,34 @@ if (isset($_POST['id']) && isset($_POST['pwd'])) {
             // var_dump($row);
             // echo '<br>';
             // echo $row['no'].$row[id].$row[name].$row[pwd];
+            if($id === 'admin') {
+                echo "<script> alert('🌴 관리자님 반갑습니다. 🌴'); </script>";
+                echo "<script> location.href='/php/admin_home.php' </script>";  // 새로운 페이지 만들어서 띄워주기
+                exit();
+            }
 
             // password_hash와 password_verity는 단짝이다. 
             $hash = $row['pwd'];
             if(password_verify($pwd, $hash)) {
-                echo "<script>alert('반갑습니다.'+$id+'님');</script>";
-                // echo "<script>location.href='/php/mypage.php?success=$id'</script>";
-                header("location: /php/mypage.php?success=$id");
+                // 세션
+                $_SESSION['no'] = $row['no'];
+                $_SESSION['id'] = $row['id'];
+                $_SESSION['name'] = $row['name'];
+                echo "<script> alert('🌻  '+'{$id}'+'님 반갑습니다. 🌻'); </script>";
+                echo "<script> location.href='/php/mypage.php' </script>";
+                // header("location: /php/mypage.php?success=$id");
                 exit();
             } else {
-                header("location: /php/login.php?error=로그인에 실패하였습니다.");
-                exit();
+                echo "<script> alert('로그인에 실패하였습니다.'); history.back();</script>";
+                // header("location: /php/login.php?error=로그인에 실패하였습니다.");
+                exit(); 
             }
 
 
-            
-
         } else {
             // 로그인 실패
-            header("location: /php/login.php?error=다시 입력해주세요");
+            echo "<script> alert('다시 입력해주세요.');  history.back(); </script>";
+            // header("location: /php/login.php?error=다시 입력해주세요");
             exit();
         }
     }

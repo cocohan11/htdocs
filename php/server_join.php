@@ -22,39 +22,37 @@ if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['pwd']) && isse
     $addr3 = mysqli_real_escape_string($db, $_POST['addr3']);
     $addrCode = mysqli_real_escape_string($db, $_POST['addrCode']);
     $date = date('Y-m-d H:i:s');
+
 // echo"가"; 
-// echo $id;
-// echo $name;
-// echo $pwd;
-// echo $pwdCheck;
-// echo $_POST['id'];
+// echo $date;
 
     // 중복확인을 안했다면/ 했다면
     if($chk_id2 == "0") {
         echo"<script> alert('아이디 중복검사를 해주세ㅔㅔ요'); history.back(); </script>";
         exit();
-        echo "나"; 
 
     } else if($chk_id2 != "0") {
         // 1이면 실행
-        echo "다";
 
+        if ($pwd != $pwdCheck){
+            // 비번동일해야 pass
+            echo"<script> alert('비밀번호가 일치하지 않습니다'); history.back(); </script>";
+            exit();
+        } 
         if(empty($id)||empty($name)||empty($pwd)||empty($pwdCheck)) {
             // 하나라도 빈 칸 있으면 되돌아가기
-            // echo"<script>alert('필수정보를 꼭 기입해 주세요.'); history.back(); </script>";
-            echo "라";
+            echo"<script>alert('필수정보를 꼭 기입해 주세요.'); history.back(); </script>";
         } else {
             // 중복확인, 빈칸확인됐으니까 회원가입 db에 저장
-            echo "마";
+
 
             $OKpwd = password_hash($pwd, PASSWORD_DEFAULT);  // 단방향 암호
-            $sql_save = "insert into consumer(id, name, pwd, email, phone, addr1, addr2, addr3, addrCode) 
-            values('$id','$name', '$OKpwd', '$email', '$tel', '$addr1','$addr2', '$addr3','$addrCode')";  // db에 저장할 쿼리문
+            $sql_save = "insert into consumer(id, name, pwd, email, phone, addr1, addr2, addr3, addrCode, ndate) 
+            values('$id','$name', '$OKpwd', '$email', '$tel', '$addr1','$addr2', '$addr3','$addrCode','$date')";  // db에 저장할 쿼리문
             $result = mysqli_query($db,$sql_save);  //db접속해서 위의명령전달
 
             // 제대로 전달됐으면 성공메세지, 실패면 실패메시지
             if($result) {
-                echo "바";
                 echo "<script> alert('성공적으로 가입되었습니다.'); </script>";
                 echo "<script> location.href='/php/login.php' </script>";
                 exit();

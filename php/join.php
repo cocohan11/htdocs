@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>그곳에 향기가 있다 - 로그인</title>
-    <link rel="stylesheet" href="/css/join.css?fa">
+    <link rel="stylesheet" href="/css/join.css?aa">
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script> 
     <script src="/js/join_address.js"></script> 
@@ -23,7 +23,6 @@
         }
         ifrm1.location.href="/php/server_join_btn_id.php?userid="+id;   // get메소드처럼 보냄
         }
-
     </script>
 </head>
 
@@ -43,8 +42,8 @@
                     <span>02 가입완료</span> 
                 </div>
             </div>
-        </div>
-        <div class="기본정보_center">
+            </div>
+            <div class="기본정보_center">
             <div class="회원가입박스">
                 <h2 class="회원가입">기본정보</h2>
                 <div class="정보입력0102 textColor_red">            
@@ -63,6 +62,8 @@
                     <li class="띄어쓰기">휴대폰번호</li>
                     <li class="띄어쓰기">주소</li>
                 </ul>
+
+
                 <form class="grid_right" action="/php/server_join.php" method="post">
                     <input type="text" id="uid" name="id" placeholder="아이디" >
                     <input type=button id="중복검사" value="중복검사" onclick=chid()>
@@ -75,7 +76,7 @@
                                 document.getElementById("chk_id2").value=0;     // 값 바뀌면 false로 돌려놓기
                             });
                         </script>
-                    <input type="password" name="pwd" placeholder="비밀번호" onkeyup="ajxa_id_check(this.value)">
+                    <input type="password" name="pwd" placeholder="비밀번호">
                     <input type="password" name="pwdCheck" placeholder="비밀번호 확인">
                     <input type="text" name="name" placeholder="이름">
                     <input type="text" name="email" placeholder="이메일">
@@ -83,12 +84,13 @@
                         <option value="nate.com">nate.com</option>
                         <option value="hanmail.com">hanmail.com</option>
                     </select>
-                    <input type="text" maxlenght="11" name="tel" placeholder="-없이 입력하세요"><br>
-                    <input type="number" id="addrCode" placeholder="우편번호" readonly > 
-                    <input type="button" id="addrCode_button" onclick="open_Postcode()" value="우편번호 찾기"><br>
-                    <input type="text" id="addr1" placeholder="도로 주소" readonly><br>
-                    <input type="text" id="addr2" placeholder="지번 주소"readonly>
-                    <input type="text" id="addr3" placeholder="상세주소">
+                    <input type="number" maxlenght="11" name="tel" placeholder="-없이 입력하세요"><br>
+                    <!-- 주소id 바꾸지않기. 라이브러리라서 주소지정 -->
+                    <input type="text" id="postcode" placeholder="우편번호" name="addrCode" readonly > 
+                    <input type="button" id="postcode_button" onclick="open_Postcode()"value="우편번호 찾기"><br>
+                    <input type="text" id="road_address" placeholder="도로 주소" name="addr1" readonly><br>
+                    <input type="text" id="address" placeholder="지번 주소" name="addr2" readonly>
+                    <input type="text" id="detail_address" name="addr3" placeholder="상세주소">
                 </div>
                 <hr class="hr_color">
                 <div style="text-align: center;">

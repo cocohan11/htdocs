@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>그곳에 향기가 있다</title>
+    <script src="/js/input_price_comma.js"></script>    <!-- 천단위 숫자 콤마 js -->
+</head>
+
+<body>
+    <form action="/php/server_admin_write.php" method="post">
+        <table border="1">
+            <tr>
+                <td>옷타입</td>
+                <td>  
+                    <select name="옷타입">
+                        <option value="상의">상의</option>
+                        <option value="하의">하의</option>
+                        <option value="원피스">원피스</option>
+                        <option value="아우터">아우터</option>
+                        <option value="소품">소품</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>상품명</td>
+                <td><input name="name" type="text" placeholder="예시) 플리츠 반팔 u넥"></td>        <!-- 중복검사하기 -->
+            </tr>
+            <tr>
+                <td>판매가</td>
+                <td><input name="price" type="text" onkeyup="inputNumberFormat(this)" > 원</td>        <!-- 콤마 js 함수 사용 -->
+            </tr>
+            <tr>
+                <td>색상</td>
+                <td>
+                    <input name="색상" type="checkbox" value="검정">검정     <!-- name을 key값으로 가져가기 때문에 같게 둠-->
+                    <input name="색상" type="checkbox" value="흰색">흰색     <!-- value값만 다르게 줌 -->
+                    <input name="색상" type="checkbox" value="회색">회색     
+                    <input name="색상" type="checkbox" value="갈색">갈색     
+                    <input name="색상" type="checkbox" value="남색">남색    
+                </td>
+            </tr>
+            <tr>
+                <td>사이즈</td>
+            </tr>
+            <tr>
+                <td>대표이미지</td>
+            </tr>
+            <tr>
+                <td>판매갯수</td>
+            </tr>
+            <tr>
+                <td>재고</td>
+            </tr>
+        </table>
+
+        <button type="submit">상품 등록</button>
+
+    </form> 
+
+
+
+    
+</body>
+</html>

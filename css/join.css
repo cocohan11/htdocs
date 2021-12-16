@@ -77,16 +77,16 @@
      border: 0;
  }
 
- #addrCode {
+ #postcode {
      width: 200px;
  }
- #addrCode_button {
+ #postcode_button {
      width: 120px;
  }
- #addr2 {
+ #address {
      width: 200px;
  }
- #addr3 {
+ #detail_address {
     width: 120px;
  }
  #email {

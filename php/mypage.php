@@ -1,3 +1,8 @@
+<?php
+    // 세션 전역변수를 사용하겠다
+    session_start();
+?>
+
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
@@ -20,10 +25,11 @@
         <h2>마이 쇼핑</h2>
         <div class="등급box">
             <span class="member등급">FAMILY</span>
-            <span class="등급오른쪽">저희 쇼핑몰을 이용해 주셔서 감사합니다. 
-                <span class="php_get_id"><?php if (isset($_GET['success'])) {?>
-                    <p><?php echo $_GET['success']; ?></p>
-                <?php } ?></span>님은 [FAMILY] 회원이십니다.</span>
+            <span class="등급오른쪽">저희 쇼핑몰을 이용해 주셔서 감사합니다.<br>
+            <?php echo $_SESSION['id']; ?>님은 [FAMILY] 회원이십니다.</span>
+            <form action="/php/logout.php" method="post">
+                <button>로그아웃</button>
+            </form>
         </div>
 
         <div class="나의주문처리현황box">

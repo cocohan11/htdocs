@@ -21,9 +21,6 @@
         <h1 style="margin-bottom: 30px;">로그인</h1>
         <input class="IDPWD" type="text" placeholder="아이디" name="id">
         <input class="IDPWD" type="password" placeholder="비밀번호" name="pwd">
-        <div class="error문구"><?php if (isset($_GET['success'])) {?>
-            <p><?php echo $_GET['success']; ?></p>
-        <?php } ?></div>
         <button class="LoginBox" type="submit">로그인</button>
         <label class="check"><input type="checkbox" name="xxx" value="yyy" checked>아이디 저장</label>
         <hr style="margin-bottom: 5px; margin-top: 15px;">

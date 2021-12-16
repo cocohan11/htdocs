@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!-- 상단은 반복되서 사용되므로 스크립트로 가져다 쓰도록 함 -->
 <html lang="ko">
 <head>
@@ -11,17 +8,11 @@ session_start();
 <body>
     <div class="Topright">
         <ul>
-            <?php 
-            if($_SESSION['id']) { ?>
-                <li><a href="/php/logout.php">로그아웃</a></li>
-            <?php } else { ?>
-                <li><a href="/php/login.php">로그인</a></li>
-                <li><a href="/php/join.php">회원가입</a></li>
-            <?php } ?>
-
-            <li><a href="/php/mypage.php">마이페이지</a></li>
-            <li><a href="/html/cart.html">장바구니</a></li>
-            <li class="noneRightBar">고객센터</li>
+            <li>반갑습니다 관리자님</li>
+            <li><a href="/php/admin_product_write.html">상품등록</a></li>
+            <li><a href="/html/cart.html">주문조회</a></li>
+            <li><a href="/php/logout.php">로그아웃</a></li>
+            <!-- <li class="noneRightBar">고객센터</li> -->
         </ul>
     </div>
     

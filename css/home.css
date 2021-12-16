@@ -46,3 +46,18 @@ li {
     border-bottom: 1px solid rgb(77, 76, 76);
     padding-bottom: 5px;
 }
+.홈대표사진 {
+    width: 100%;
+}
+.홈_center {
+     margin-left: 10%; margin-right: 10%; margin-top: 60px;
+     /* border: 1px solid gray; */
+}
+.홈_center h3 {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+.img들어갈곳 {
+    padding: 100px;
+    background-color: rgb(231, 231, 231);
+}
