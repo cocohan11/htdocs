@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>그곳에 향기가 있다</title>
     <script src="/js/input_price_comma.js"></script>    <!-- 천단위 숫자 콤마 js -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>      <!-- 색상 체크박스 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -32,11 +35,12 @@
             <tr>
                 <td>색상</td>
                 <td>
-                    <input name="색상" type="checkbox" value="검정">검정     <!-- name을 key값으로 가져가기 때문에 같게 둠-->
-                    <input name="색상" type="checkbox" value="흰색">흰색     <!-- value값만 다르게 줌 -->
-                    <input name="색상" type="checkbox" value="회색">회색     
-                    <input name="색상" type="checkbox" value="갈색">갈색     
-                    <input name="색상" type="checkbox" value="남색">남색    
+                    <input id="전체선택" type="checkbox" class="chk">전체선택        <!-- 체크의 class의 값이 모두 같음-->
+                    <input name="색상[]" type="checkbox" class="chk" value="검정">검정     <!-- name을 key값으로 가져가기 때문에 같게 둠-->
+                    <input name="색상[]" type="checkbox" class="chk" value="흰색">흰색     <!-- value값만 다르게 줌 -->
+                    <input name="색상[]" type="checkbox" class="chk" value="회색">회색     
+                    <input name="색상[]" type="checkbox" class="chk" value="갈색">갈색     
+                    <input name="색상[]" type="checkbox" class="chk" value="남색">남색    
                 </td>
             </tr>
             <tr>
@@ -54,11 +58,54 @@
         </table>
 
         <button type="submit">상품 등록</button>
-
+        <!-- <script>
+            function color_checkbox() {     // 색상 다중선택한 값이 여러개 안 담겨져서 js이용해서 함수만듦
+                
+                var flag = flase;
+                var values = document.getElementsByName("색상"); // 배열 형태로 담김
+                var count = 0;
+                alert(values.length);
+    
+                for(var i=0; i<values.length;i++) {
+                    if(values[i].checked) {
+                        alert(values[i].value);
+                        count++;
+                    }
+                }
+                if(count<1) {
+                    alert("2개 이상 선택해야 합니다.");
+                } else {
+                    alert(count+" 개 선택했습니다.");
+                    flag = true;
+                }
+                return flag;
+                
+            }
+        </script> -->
     </form> 
+
 
 
 
     
 </body>
 </html>
+
+<script>                                            // 색상 다중선택 post로 넘기기위한 jquery
+    $("#전체선택").click(function() {               // 전체선택이란 id를 가진 체크박스를 클릭한다.
+        if($("#전체선택").is(":checked")) {         // 만약 전체선택이 체크라면 
+            $(".chk").prop("checked", true);       // 클래스값 chk를 가진 값들을 체크해라 //문법 >>> $(elem).prop('checked')
+        } else {
+            $(".chk").prop("checked", false);
+        }
+    });
+
+    // 전체 선택 중 한개의 체크박스 선택 해제 시 전체선택 체크박스 해제
+    $(".chk").click(function(){
+        if($("input[name='색상[]']:checked").length == 5){
+            $("#전체선택").prop("checked", true);
+        }else{
+            $("#전체선택").prop("checked", false);
+        }
+    });
+</script>
