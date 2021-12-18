@@ -6,11 +6,16 @@
     <script src="/js/input_price_comma.js"></script>    <!-- 천단위 숫자 콤마 js -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>      <!-- 색상 체크박스 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-
+<style>
+    .img_table_size {
+        /* width: 800px; */
+    }
+</style>
 </head>
 
 <body>
-    <form action="/php/server_admin_write.php" method="post">
+    <!-- 이미지 파일 데이터를 받아야 하기 때문에 enctype(인코딩타입)을 multipart/form-date로 설정  -->
+    <form action="/php/server_admin_write.php" method="post" enctype="multipart/form-data">
         <table border="1">
             <tr>
                 <td>옷타입</td>
@@ -54,32 +59,21 @@
             </tr>
             <tr>
                 <td>대표이미지</td>
-                <td><button>사진첨부</button></td>
+                <td class="img_table_size">    
+                    <!-- input태그의 타입을 file로 설정한다. image파일만 선택하도록 한다. -->
+                    <!-- onchange:페이지전환없이도 파일을 미리 볼 수 있다. loadFile() : 아래에 JS 함수임-->
+                    <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">    
+                    <span class="image-show" id="image-show"></span>    <!--여기서 이미지 삽입됨-->
+                </td>
             </tr>
             <tr>
-                <td>판매갯수</td>
-            </tr>
-            <tr>
-                <td>재고</td>
+                <td>입고</td>
+                <td><input type="text" onkeyup="inputNumberFormat(this)"> 개</td> 
             </tr>
         </table>
 
-        <button type="submit">상품 등록</button><br>
+        <br><button type="submit">상품 등록</button><br>
     </form> 
-
-    <form method="post" enctype="multipart/form-data">
-        <!-- <label for="chooseFile">👉 CLICK HERE! 👈</label> -->
-        <!-- 이미지 파일 데이터를 받아야 하기 때문에 enctype을 multipart/form-date로 설정하고  -->
-        <!-- input태그의 타입을 file로 설정한다. image파일만 선택하도록 한다. -->
-        <input type="file" id="chooseFile" name="chooseFile" accept="image/*" onchange="loadFile(this)">    <!-- loadFile() : 아래에 JS 함수임-->
-    </form>
-    <div class="fileContainer">
-        <div>File Name : </div>
-        <p id="fileName"></p>
-    </div>
-    <div class="image-show" id="image-show"></div>
-
-
 
     
 </body>
@@ -127,23 +121,23 @@
         var file = input.files[0];      // 선택된 파일 가져오기
 
         // 미리 만들어 놓은 div에 text(파일이름) 추가
-        var name = document.getElementById('fileName');
-        name.textContent = file.name;
+        // var name = document.getElementById('fileName');
+        // name.textContent = file.name;
 
         // 새로운 이미지 div 추가
-        var newImage = document.createElement("img");   // create? element?
-        newImage.setAttribute("class", 'img');          // class?
+        var newImage = document.createElement("img");   // img태그 삽입
+        newImage.setAttribute("class", 'img');          // 선택한 요소의 속성값을 정함(클래스란 속성에 img란 속성값을 넣음)
 
         // 이미지 source 가져오기
-        newImage.src = URL.createObjectURL(file);
+        newImage.src = URL.createObjectURL(file);       // 이 url은 언제까지 유효하지?
 
-        newImage.style.width = "50%";
-        newImage.style.height = "50%";
+        newImage.style.width = "20%";
+        // newImage.style.height = "20%";
         // newImage.style.visibility = "hidden";      // 버튼을 누르기 전까지는 이미지를 숨긴다
-        newImage.style.objectFit = "contain";      // 뭘 컨테인해??
+        newImage.style.objectFit = "contain";      // css. 이미지 잘라내고 공간채우는지 <-->cover
 
         var container = document.getElementById('image-show');
-        container.appendChild(newImage);
+        container.appendChild(newImage);        // 문서를(id에) 붙인다(이미지를)
     };
 
 </script>

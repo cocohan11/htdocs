@@ -2,8 +2,36 @@
 
     // post메소드로 받아온 정보
     echo $_POST['옷타입'];  
+    // echo $_POST['chooseFile'];
     $check_color = $_POST['색상'];  
     $check_size = $_POST['사이즈'];
+
+    //-----------------------이미지-------------------------------
+    $name = $_POST['name'];                                 // $_POST로 POST데이터를 가져오는 것 처럼 $_FILES로 FILE데이터를 가져온다.        
+    
+    $chooseFile = $_FILES['chooseFile'] ['name'];           // 이미지 이름
+    $target = 'images/' .$chooseFile;                       // 이미지를 저장할 경로
+    $chooseFile_type = $_FILES['chooseFile'] ['type'];      // 파일 타입
+    $chooseFile_size = $_FILES['chooseFile'] ['size'];      // 파일 사이즈
+    $tmp_name = $_FILES['chooseFile'] ['tmp_name'];         // 임시로 이미지가 저장되는 경로
+    $error = $_FILES['chooseFile'] ['error'];               // 파일 에러코드
+    
+    move_uploaded_file( $tmp_name, $target);                // 임시경로에 있는 파일을 지정한 위치로 이동
+    
+    echo '<string> Error: </strong>' .$error. '<br/> <br/>';
+    echo $name, '<br/>';
+    echo '<strong> chooseFile : </strong>' .$chooseFile. '<br/>';
+    echo '<strong> chooseFile_type : </strong> ' .$chooseFile_type. '<br/>';
+    echo '<strong> chooseFile_size : </strong>' .$chooseFile_size. '<br/>';
+    echo '<strong> tmp_name : </strong>' .$tmp_name .'<br/>';
+    
+    echo '<img src="'.$target. '"alt="Score image" /> </p>';
+    //--------------------------------------------------------------
+    
+    
+    
+    
+
 
     // 체크된 값들을 배열에 저장한다.
     $array_color = array($check_color);     
