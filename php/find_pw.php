@@ -28,7 +28,10 @@
     {
         // sbustr(문자열,시작지점,길이) // sha256:해싱할 알고리즘명
         $new_pw = substr(hash("sha256",mt_rand()),1,6);         
-        $new_pw_hash = hash("sha256",$new_pw);
+        // $new_pw_hash = hash("sha256",$new_pw);
+        // 비밀번호가 맞지않아서 회원가입할 때 사용했던 패스워드 해시를 동일하게 적용함 ok
+        $new_pw_hash = password_hash($new_pw, PASSWORD_DEFAULT);  // 단방향 암호
+
         
         // consumer테이블의 pwd를 저거로 업데이트한다. 특정지어 id가 저거인. 
         $query2 = "UPDATE consumer SET pwd='$new_pw_hash' WHERE id='$id'";
@@ -37,9 +40,10 @@
 
         #send tmp pw
         echo "<script>alert('등록된 이메일로 새로운 비밀번호를 보냈습니다.')</script>";
+        echo $new_pw_hash;
     }
 
-    echo "<form method=post action='sendmail.php' name='frm'>";
+    echo "<form method=post action='/mail/mail.php' name='frm'>";
     echo "<input type='hidden' name='email' value=$mail>";
     echo "<input type='hidden' name='new_pw' value=$new_pw>";
     echo"<input type='hidden' name='name' value=$name>";
