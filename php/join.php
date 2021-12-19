@@ -58,7 +58,7 @@
                     <li><span class="textColor_red">▪</span><span> 비밀번호<span></li>
                     <li><span class="textColor_red">▪</span><span> 비밀번호 확인<span></li>
                     <li><span class="textColor_red">▪</span><span> 이름<span></li>
-                    <li class="띄어쓰기">이메일</li>
+                    <li><span class="textColor_red">▪</span> 이메일</li>
                     <li class="띄어쓰기">휴대폰번호</li>
                     <li class="띄어쓰기">주소</li>
                 </ul>
@@ -80,17 +80,17 @@
                     <input type="password" name="pwdCheck" placeholder="비밀번호 확인">
                     <input type="text" name="name" placeholder="이름">
                     <input type="text" name="email" placeholder="이메일">
-                    @<select id="email" ><option value="naver.com">naver.com</option>
+                    <!-- @<select id="email" ><option value="naver.com">naver.com</option>
                         <option value="nate.com">nate.com</option>
                         <option value="hanmail.com">hanmail.com</option>
-                    </select>
+                    </select> -->
                     <input type="number" maxlenght="11" name="tel" placeholder="-없이 입력하세요"><br>
                     <!-- 주소id 바꾸지않기. 라이브러리라서 주소지정 -->
                     <input type="text" id="postcode" placeholder="우편번호" name="addrCode" readonly > 
                     <input type="button" id="postcode_button" onclick="open_Postcode()"value="우편번호 찾기"><br>
                     <input type="text" id="road_address" placeholder="도로 주소" name="addr1" readonly><br>
                     <input type="text" id="address" placeholder="지번 주소" name="addr2" readonly>
-                    <input type="text" id="detail_address" name="addr3" placeholder="상세주소">
+                    <input type="text" id="detail_address" placeholder="상세주소" name="addr3">
                 </div>
                 <hr class="hr_color">
                 <div style="text-align: center;">

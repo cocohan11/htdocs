@@ -24,9 +24,9 @@
         <button class="LoginBox" type="submit">로그인</button>
         <label class="check"><input type="checkbox" name="xxx" value="yyy" checked>아이디 저장</label>
         <hr style="margin-bottom: 5px; margin-top: 15px;">
-        <span>아이디찾기</span>
-        <span>비밀번호찾기</span>
-        <span>회원가입</span>
+        <!-- <span>아이디찾기</span> -->
+        <span><a href="/php/find.php">아이디 또는 비밀번호찾기</a></span>
+        <span><a href="/php/join.php">회원가입</a></span>
         <hr>
     </form>
 
