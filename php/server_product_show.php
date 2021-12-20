@@ -16,16 +16,14 @@
 
     // $_POST로 POST데이터를 가져오는 것 처럼 $_FILES로 FILE데이터를 가져온다.        
     $chooseFile = $_FILES['chooseFile'] ['name'];           // 이미지 이름
-    $folder = '../Image/';                                    // 이미지를 저장할 경로
+    $path = '../Image/';                                    // 이미지를 저장할 경로
     $tmp_name = $_FILES['chooseFile'] ['tmp_name'];         // 임시로 이미지가 저장되는 경로
     $error = $_FILES['chooseFile'] ['error'];               // 파일 에러코드
-    $path = $folder.$chooseFile;
-
     // $chooseFile_type = $_FILES['chooseFile'] ['type'];      // 파일 타입
     // $chooseFile_size = $_FILES['chooseFile'] ['size'];      // 파일 사이즈
 
     // 임시경로에 있는 파일  --> 을 지정한 위치로 이동 후 저장
-    if (move_uploaded_file($tmp_name, $folder.$chooseFile)) {  
+    if (move_uploaded_file($tmp_name, $path.$chooseFile)) {  
         // echo "Uploaded";
     } else {
         echo "File not uploaded";
@@ -61,9 +59,9 @@
     //--------------------------- mysql에 주소저장 -------------------------------
 
     // mysql에 이미지 경로 저장
-    // $sql = "insert into image_info(image_name, folder) values('$chooseFile','$folder.$chooseFile')";  // db에 전달할 쿼리문
+    // $sql = "insert into image_info(image_name, path) values('$chooseFile','$path.$chooseFile')";  // db에 전달할 쿼리문
     $sql = "insert into product(name, price, type, color, size, image_path, warehouse, upload_date)
-     values('$name','$price','$옷타입','$array_color','$result_size','$path', '$count', '$date')";  // db에 전달할 쿼리문
+     values('$name','$price','$옷타입','$result_color','$result_size','$path.$chooseFile', '$count', '$date')";  // db에 전달할 쿼리문
     $result = mysqli_query($db,$sql);  //db접속해서 위의명령전달
 
 
@@ -89,7 +87,7 @@
 
     <div class="item_detail_center">
         <div class="좌사진우설명">
-        <img id="메인사진" src="<?php echo $folder.$chooseFile?>">
+        <img id="메인사진" src="<?php echo $path.$chooseFile?>">
             <div class="item박스">
                 <table class="item_table">
                     <thead>
@@ -141,7 +139,7 @@
                                         <option value="소">소</option>
                                     <?php } if(strpos($result_size,'중') !== false) { ?>
                                         <option value="중">중</option>
-                                    <?php } if(strpos($array_size,'대') !== false) { ?>
+                                    <?php } if(strpos($result_size,'대') !== false) { ?>
                                         <option value="대">대</option>
                                     <?php } ?>
                                 </select>

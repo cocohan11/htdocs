@@ -54,10 +54,16 @@ if (isset($_POST['id']) && isset($_POST['pwd'])) {
             // password_hash와 password_verity는 단짝이다. 
             $hash = $row['pwd'];
             if(password_verify($pwd, $hash)) {
-                // 세션
+                // 로그인하면 로그인하는 동안 전역변수로 사용하기
                 $_SESSION['no'] = $row['no'];
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['name'] = $row['name'];
+                $_SESSION['email'] = $row['email'];
+                $_SESSION['phone'] = $row['phone'];
+                $_SESSION['addr1'] = $row['addr1'];
+                $_SESSION['addr2'] = $row['addr2'];
+                $_SESSION['addr3'] = $row['addr3'];
+                $_SESSION['addrCode'] = $row['addrCode'];
                 echo "<script> alert('🌻  '+'{$id}'+'님 반갑습니다. 🌻'); </script>";
                 echo "<script> location.href='/php/mypage.php' </script>";
                 // header("location: /php/mypage.php?success=$id");

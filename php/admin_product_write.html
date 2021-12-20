@@ -6,11 +6,7 @@
     <script src="/js/input_price_comma.js"></script>    <!-- 천단위 숫자 콤마 js -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>      <!-- 색상 체크박스 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<style>
-    .img_table_size {
-        /* width: 800px; */
-    }
-</style>
+
 </head>
 
 <body>
@@ -40,21 +36,21 @@
             <tr>
                 <td>색상</td>
                 <td>
-                    <input id="전체선택" type="checkbox" class="chk">전체선택              <!-- 체크의 class의 값이 모두 같음-->
-                    <input name="색상[]" type="checkbox" class="chk" value="검정">검정     <!-- name을 key값으로 가져가기 때문에 같게 둠-->
-                    <input name="색상[]" type="checkbox" class="chk" value="흰색">흰색     <!-- value값만 다르게 줌 -->
-                    <input name="색상[]" type="checkbox" class="chk" value="회색">회색     
-                    <input name="색상[]" type="checkbox" class="chk" value="갈색">갈색     
-                    <input name="색상[]" type="checkbox" class="chk" value="곤색">곤색    
+                    <input id="전체선택" type="checkbox" class="chk" checked >전체선택              <!-- 체크의 class의 값이 모두 같음-->
+                    <input name="색상[]" type="checkbox" class="chk" value="검정" checked>검정     <!-- name을 key값으로 가져가기 때문에 같게 둠-->
+                    <input name="색상[]" type="checkbox" class="chk" value="흰색" checked>흰색     <!-- value값만 다르게 줌 -->
+                    <input name="색상[]" type="checkbox" class="chk" value="회색" checked>회색     
+                    <input name="색상[]" type="checkbox" class="chk" value="갈색" checked>갈색     
+                    <input name="색상[]" type="checkbox" class="chk" value="곤색" checked>곤색    
                 </td>
             </tr>
             <tr>
                 <td>사이즈</td>
                 <td>            
-                    <input id="전체선택_사이즈" type="checkbox" class="chk_size">전체선택        
-                    <input name="사이즈[]" type="checkbox" class="chk_size" value="소">소     
-                    <input name="사이즈[]" type="checkbox" class="chk_size" value="중">중     
-                    <input name="사이즈[]" type="checkbox" class="chk_size" value="대">대
+                    <input id="전체선택_사이즈" type="checkbox" class="chk_size" checked>전체선택        
+                    <input name="사이즈[]" type="checkbox" class="chk_size" value="소" checked>소     
+                    <input name="사이즈[]" type="checkbox" class="chk_size" value="중" checked>중     
+                    <input name="사이즈[]" type="checkbox" class="chk_size" value="대" checked>대
                 </td>
             </tr>
             <tr>
@@ -68,7 +64,7 @@
             </tr>
             <tr>
                 <td>입고</td>
-                <td><input type="text" onkeyup="inputNumberFormat(this)"> 개</td> 
+                <td><input name="count" type="text" onkeyup="inputNumberFormat(this)"> 개</td> 
             </tr>
         </table>
 

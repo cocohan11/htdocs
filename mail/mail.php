@@ -85,3 +85,9 @@ if (!$mail->send()) {
     #    echo "Message saved!";
     #}
 }
+
+// echo "<script>alert('로그인페이지로 이동합니다. ');history.back()</script>";
+echo "<script>alert('등록된 이메일로 새로운 비밀번호를 보냈습니다.')</script>";
+echo "<script> location.href='/php/login.php' </script>";
+
+

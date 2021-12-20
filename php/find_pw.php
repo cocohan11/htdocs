@@ -39,8 +39,8 @@
         mysqli_close($db);
 
         #send tmp pw
-        echo "<script>alert('등록된 이메일로 새로운 비밀번호를 보냈습니다.')</script>";
-        echo $new_pw_hash;
+        // echo "<script>alert('등록된 이메일로 새로운 비밀번호를 보냈습니다.<br>로그인 페이지로 이동합니다.')</script>";
+        // echo $new_pw_hash;
     }
 
     echo "<form method=post action='/mail/mail.php' name='frm'>";

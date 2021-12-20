@@ -69,9 +69,11 @@ else
         echo "<script>alert('새로운 비밀번호가 일치하지 않습니다. 다시 확인해주세요');history.back()</script>";
 
         }
+    // 현재 비밀번호 불일치
+    } else {
+        echo "<script>alert('현재 비밀번호가 일치하지 않습니다. 다시 확인해주세요');history.back()</script>";
     }
 
-    echo $pwbf_hash;
 
    
 }

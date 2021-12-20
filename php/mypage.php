@@ -1,6 +1,11 @@
 <?php
     // 세션 전역변수를 사용하겠다
     session_start();
+
+    // 로그인되어있어야 마이페이지에 들어갈 수 있음
+    if(!$_SESSION['id']) {
+        echo "<script>alert('로그인해주세요');history.back()</script>";
+    }
 ?>
 
 <html lang="ko">
